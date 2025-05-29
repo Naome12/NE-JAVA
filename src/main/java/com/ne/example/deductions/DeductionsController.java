@@ -29,7 +29,7 @@ public class DeductionsController {
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public Optional<Deductions> getDeductionById(@PathVariable Long id) {
-        return deductionsService.getDeductionById(id);
+        return Optional.ofNullable(deductionsService.getDeductionById(id));
     }
 
     @PutMapping("/{id}")
